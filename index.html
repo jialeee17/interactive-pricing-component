@@ -12,25 +12,54 @@
   <link rel="stylesheet" href="scss/main.css">
 </head>
 <body>
+<main class="main">
+  <div class="container">
+    <section class="section-main">
+      <div class="sectionWrap">
+        <div class="section-main__header">
+          <h1>Simple, traffic-based pricing</h1>
+          <p>Sign-up for our 30-day trial. No credit card required.</p>
+        </div>
+        <div class="section-main__priceComponent">
+          <div class="componentWrap">
+            <!-- Top Section -->
+            <div class="firstPart">
+              <div>
+                <label class="pageView">100K Pageviews</label>
+                <input type="range" id="viewSlider" class="viewSlider" name="viewSlider" min="1000" max="10000" step="100" value="5000">
+                <p class="pricing"><span>$16.00</span> / month</p>
+              </div>
 
-  Simple, traffic-based pricing
-  Sign-up for our 30-day trial. No credit card required. 
+              <div>
+                <div class="monthlyBilling">
+                  <label>Monthly Billing</label>
+                  <label class="switch">
+                    <input type="checkbox" name="switch">
+                    <span class="slider"></span>
+                  </label>
+                </div>
+                <div class="yearlyBilling">
+                  <span>Yearly Billing</span>
+                </div>
+              </div>
+            </div>
 
-  Pageviews
-  $ /month
-
-  Monthly Billing
-  Yearly Billing 25% discount
-
-  Unlimited websites
-  100% data ownership
-  Email reports
-
-  Start my trial
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+            <!-- Bottom Section -->
+            <div class="secondPart">
+              <ul>
+                <li class="nav-item">Unlimited websites</li>
+                <li class="nav-item">100% data ownership</li>
+                <li class="nav-item">Email reports</li>
+              </ul>
+              <div class="btnWrapper">
+                <button type="submit" class="btn-submit">Start my trial</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
+</main>
 </body>
 </html>

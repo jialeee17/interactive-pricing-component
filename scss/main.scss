@@ -1,1 +1,312 @@
-@import 'base/base';
+@import "base/base";
+
+/* -------------------------------------------------------------------------- */
+/*                                    Fonts                                   */
+/* -------------------------------------------------------------------------- */
+@font-face {
+    font-family: "themeSemiBold";
+    src: url(../fonts/manrope/Manrope-SemiBold.woff) format("woff"),
+        url(../fonts/manrope/Manrope-SemiBold.woff2) format("woff2");
+}
+
+@font-face {
+    font-family: "themeExtraBold";
+    src: url(../fonts/manrope/Manrope-ExtraBold.woff) format("woff"),
+        url(../fonts/manrope/Manrope-ExtraBold.woff2) format("woff2");
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  Variables                                 */
+/* -------------------------------------------------------------------------- */
+$soft-cyan: hsl(174, 77%, 80%); // Full Slider Bar
+$strong-cyan: hsl(174, 86%, 45%); //Slider Backround
+$light-grayish-red: hsl(14, 92%, 95%); //Discount Background
+$light-red: hsl(15, 100%, 70%); //Discount Text
+$pale-blue: hsl(226, 100%, 87%); //CTA Text
+
+$white: hsl(0, 0%, 100%); //Pricing Component Background
+$very-pale-blue: hsl(230, 100%, 99%); //Main Background
+$light-grayish-blue01: hsl(224, 65%, 95%); //Empty Slider Bar
+$light-grayish-blue02: hsl(223, 50%, 87%); //Toggle Background
+$grayish-blue: hsl(225, 20%, 60%); //Text
+$dark-desaturated-blue: hsl(227, 35%, 25%); //Text & CTA Background
+
+/* -------------------------------------------------------------------------- */
+/*                                     CSS                                    */
+/* -------------------------------------------------------------------------- */
+/* ------------------------------- Default CSS ------------------------------ */
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+
+    body {
+        background-image: url("../images/bg-pattern.svg");
+        background-repeat: no-repeat;
+        min-height: 100vh;
+        position: relative;
+        width: 100%;
+
+        &::before {
+            content: url("../images/pattern-circles.svg");
+            position: absolute;
+            top: 10rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: -1;
+        }
+
+        @media screen and (min-width: 1440px) {
+            background-size: contain;
+            background-position: 50% -50%;
+        }
+    }
+}
+
+.container {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a {
+    cursor: default;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+/* ------------------------------- Layout CSS ------------------------------- */
+.main {
+    .section-main {
+        .sectionWrap {
+            padding: 13.5rem 1rem;
+
+            .section-main__header {
+                margin-bottom: 6rem;
+
+                h1 {
+                    color: $dark-desaturated-blue;
+                    font-family: "themeExtraBold";
+                    font-size: 2.1rem;
+                    margin-bottom: 1rem;
+                }
+                p {
+                    color: $grayish-blue;
+                    font-family: "themeSemiBold";
+                    padding: 0 5rem;
+                }
+            }
+
+            .section-main__priceComponent {
+                // background: $white;
+                background: $white;
+                border-radius: 0.8rem;
+                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+                margin: 0 auto;
+                max-width: 550px;
+
+                .componentWrap {
+                    .firstPart {
+                        padding: 3rem;
+                        border-bottom: 1px solid $light-grayish-blue02;
+
+                        > div {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+
+                            .pageView,
+                            .pricing {
+                                color: $grayish-blue;
+                                font-size: 1.4rem;
+                            }
+
+                            .pageView {
+                                font-family: "themeExtraBold";
+                                letter-spacing: 0.1rem;
+                                text-transform: uppercase;
+                            }
+
+                            input[type="range"] {
+                                background: greenyellow;
+                                margin: 2rem 0;
+
+                                &::-webkit-slider-thumb {
+                                    // background: red;
+                                }
+
+                                &::-webkit-slider-runnable-track {
+                                    // background: red;
+                                }
+                            }
+
+                            .pricing {
+                                display: flex;
+                                align-items: center;
+                                font-family: "themeSemiBold";
+                                margin-bottom: 3rem;
+
+                                span {
+                                    color: $dark-desaturated-blue;
+                                    font-family: "themeExtraBold";
+                                    font-size: 2.8rem;
+                                    margin-right: 0.5rem;
+                                    text-shadow: 0 0 1px $dark-desaturated-blue;
+                                }
+                            }
+
+                            &:nth-child(2) {
+                                flex-direction: row;
+                                justify-content: center;
+
+                                .monthlyBilling {
+                                    display: flex;
+                                    margin-right: 1rem;
+
+                                    > label {
+                                        &:first-child {
+                                            color: $grayish-blue;
+                                            font-family: "themeSemiBold";
+                                            font-size: 1.3rem;
+                                            margin-right: 0.8rem;
+                                        }
+                                    }
+
+                                    .switch {
+                                        display: flex;
+                                        align-items: center;
+
+                                        .slider {
+                                            background: $light-grayish-blue02;
+                                            border-radius: 1.5rem;
+                                            position: relative;
+                                            width: 4rem;
+                                            height: 2rem;
+                                            transition: background-color 0.3s ease;
+
+                                            &::before {
+                                                background: $white;
+                                                border-radius: 50%;
+                                                content: "";
+                                                width: 1.5rem;
+                                                height: 1.5rem;
+                                                position: absolute;
+                                                top: 50%;
+                                                left: 0.2rem;
+                                                transition: transform 0.3s ease;
+                                                transform: translateY(-50%);
+                                            }
+                                        }
+
+                                        input[type="checkbox"] {
+                                            position: absolute;
+                                            width: 0;
+                                            height: 0;
+                                            opacity: 0;
+                                        }
+
+                                        input[type="checkbox"]:checked {
+                                            & + .slider {
+                                                background: $strong-cyan;
+                                                border: 1px solid $white;
+                                                box-shadow: 0 0 2px 1px $white, 0 0 3px 2px $strong-cyan,
+                                                    0 0 10px 2px $strong-cyan;
+
+                                                &::before {
+                                                    transform: translate(20px, -50%);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                .yearlyBilling {
+                                    position: relative;
+
+                                    span {
+                                        color: $grayish-blue;
+                                        font-family: "themeSemiBold";
+                                        font-size: 1.3rem;
+                                    }
+
+                                    &::after {
+                                        background: $light-grayish-red;
+                                        border-radius: 1rem;
+                                        content: "-25%";
+                                        color: $light-red;
+                                        font-family: "themeSemiBold";
+                                        padding: 0.3rem 0.5rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .secondPart {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        padding: 2rem 3rem 3rem;
+
+                        > ul {
+                            margin-bottom: 3rem;
+
+                            li {
+                                &.nav-item {
+                                    color: $grayish-blue;
+                                    font-family: "themeSemiBold";
+                                    font-size: 1.3rem;
+                                    text-align: center;
+
+                                    &:not(:last-child) {
+                                        margin-bottom: 1rem;
+                                    }
+
+                                    &::before {
+                                        content: url("../images/icon-check.svg");
+                                        margin-right: 1.2rem;
+                                    }
+                                }
+                            }
+                        }
+
+                        button {
+                            &.btn-submit {
+                                animation: glowing 2s infinite alternate;
+                                background: $dark-desaturated-blue;
+                                border: 0;
+                                border-radius: 2rem;
+                                box-shadow: none;
+                                color: $pale-blue;
+                                font-family: "themeSemiBold";
+                                padding: 1.2rem 3rem;
+                                text-shadow: 0 0 1px $pale-blue, 0 0 2px $pale-blue, 0 0 7px$pale-blue;
+                                transition: all 0.3s ease-out;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 Animations                                 */
+/* -------------------------------------------------------------------------- */
+@keyframes glowing {
+    100% {
+        text-shadow: 0 0 1px $pale-blue, 0 0 2px$pale-blue, 0 0 7px$pale-blue;
+        box-shadow: 0 0 2px $dark-desaturated-blue, 0 0 7px $dark-desaturated-blue, 0 0 13px $dark-desaturated-blue;
+    }
+
+    0% {
+        text-shadow: none;
+        box-shadow: none;
+    }
+}

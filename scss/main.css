@@ -4,7 +4,6 @@
     - The "symbol *" part is to solve Firefox SVG sprite bug
  */
 *:where(:not(iframe, canvas, img, svg, video):not(svg *, symbol *)) {
-  all: unset;
   display: revert;
 }
 
@@ -12,6 +11,8 @@
 *,
 *::before,
 *::after {
+  margin: 0;
+  padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -59,5 +60,335 @@ textarea {
 /* apply back the draggable feature - exist only in Chromium and Safari */
 :where([draggable="true"]) {
   -webkit-user-drag: element;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                    Fonts                                   */
+/* -------------------------------------------------------------------------- */
+@font-face {
+  font-family: "themeSemiBold";
+  src: url(../fonts/manrope/Manrope-SemiBold.woff) format("woff"), url(../fonts/manrope/Manrope-SemiBold.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "themeExtraBold";
+  src: url(../fonts/manrope/Manrope-ExtraBold.woff) format("woff"), url(../fonts/manrope/Manrope-ExtraBold.woff2) format("woff2");
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  Variables                                 */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                     CSS                                    */
+/* -------------------------------------------------------------------------- */
+/* ------------------------------- Default CSS ------------------------------ */
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+}
+
+html body {
+  background-image: url("../images/bg-pattern.svg");
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  position: relative;
+  width: 100%;
+}
+
+html body::before {
+  content: url("../images/pattern-circles.svg");
+  position: absolute;
+  top: 10rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: -1;
+}
+
+@media screen and (min-width: 1440px) {
+  html body {
+    background-size: contain;
+    background-position: 50% -50%;
+  }
+}
+
+.container {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a {
+  cursor: default;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+/* ------------------------------- Layout CSS ------------------------------- */
+.main .section-main .sectionWrap {
+  padding: 13.5rem 1rem;
+}
+
+.main .section-main .sectionWrap .section-main__header {
+  margin-bottom: 6rem;
+}
+
+.main .section-main .sectionWrap .section-main__header h1 {
+  color: #293356;
+  font-family: "themeExtraBold";
+  font-size: 2.1rem;
+  margin-bottom: 1rem;
+}
+
+.main .section-main .sectionWrap .section-main__header p {
+  color: #858fad;
+  font-family: "themeSemiBold";
+  padding: 0 5rem;
+}
+
+.main .section-main .sectionWrap .section-main__priceComponent {
+  background: white;
+  border-radius: 0.8rem;
+  -webkit-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+          box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin: 0 auto;
+  max-width: 550px;
+}
+
+.main .section-main .sectionWrap .section-main__priceComponent .componentWrap .firstPart {
+  padding: 3rem;
+  border-bottom: 1px solid #cdd7ee;
+}
+
+.main .section-main .sectionWrap .section-main__priceComponent .componentWrap .firstPart > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main .section-main .sectionWrap .section-main__priceComponent .componentWrap .firstPart > div .pageView,
+.main .section-main .sectionWrap .section-main__priceComponent .componentWrap .firstPart > div .pricing {
+  color: #858fad;
+  font-size: 1.4rem;
+}
+
+.main .section-main .sectionWrap .section-main__priceComponent .componentWrap .firstPart > div .pageView {
+  font-family: "themeExtraBold";
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+
+.main .section-main .sectionWrap .section-main__priceComponent .componentWrap .firstPart > div input[type="range"] {
+  background: greenyellow;
+  margin: 2rem 0;
+}
+
+.main .section-main .sectionWrap .section-main__priceComponent .componentWrap .firstPart > div .pricing {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "themeSemiBold";
+  margin-bottom: 3rem;
+}
+
+.main .section-main .sectionWrap .section-main__priceComponent .componentWrap .firstPart > div .pricing span {
+  color: #293356;
+  font-family: "themeExtraBold";
+  font-size: 2.8rem;
+  margin-right: 0.5rem;
+  text-shadow: 0 0 1px #293356;
+}
+
+.main .section-main .sectionWrap .section-main__priceComponent .componentWrap .firstPart > div:nth-child(2) {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.main .section-main .sectionWrap .section-main__priceComponent .componentWrap .firstPart > div:nth-child(2) .monthlyBilling {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 1rem;
+}
+
+.main .section-main .sectionWrap .section-main__priceComponent .componentWrap .firstPart > div:nth-child(2) .monthlyBilling > label:first-child {
+  color: #858fad;
+  font-family: "themeSemiBold";
+  font-size: 1.3rem;
+  margin-right: 0.8rem;
+}
+
+.main .section-main .sectionWrap .section-main__priceComponent .componentWrap .firstPart > div:nth-child(2) .monthlyBilling .switch {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main .section-main .sectionWrap .section-main__priceComponent .componentWrap .firstPart > div:nth-child(2) .monthlyBilling .switch .slider {
+  background: #cdd7ee;
+  border-radius: 1.5rem;
+  position: relative;
+  width: 4rem;
+  height: 2rem;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+
+.main .section-main .sectionWrap .section-main__priceComponent .componentWrap .firstPart > div:nth-child(2) .monthlyBilling .switch .slider::before {
+  background: white;
+  border-radius: 50%;
+  content: "";
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  top: 50%;
+  left: 0.2rem;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.main .section-main .sectionWrap .section-main__priceComponent .componentWrap .firstPart > div:nth-child(2) .monthlyBilling .switch input[type="checkbox"] {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.main .section-main .sectionWrap .section-main__priceComponent .componentWrap .firstPart > div:nth-child(2) .monthlyBilling .switch input[type="checkbox"]:checked + .slider {
+  background: #10d5c2;
+  border: 1px solid white;
+  -webkit-box-shadow: 0 0 2px 1px white, 0 0 3px 2px #10d5c2, 0 0 10px 2px #10d5c2;
+          box-shadow: 0 0 2px 1px white, 0 0 3px 2px #10d5c2, 0 0 10px 2px #10d5c2;
+}
+
+.main .section-main .sectionWrap .section-main__priceComponent .componentWrap .firstPart > div:nth-child(2) .monthlyBilling .switch input[type="checkbox"]:checked + .slider::before {
+  -webkit-transform: translate(20px, -50%);
+          transform: translate(20px, -50%);
+}
+
+.main .section-main .sectionWrap .section-main__priceComponent .componentWrap .firstPart > div:nth-child(2) .yearlyBilling {
+  position: relative;
+}
+
+.main .section-main .sectionWrap .section-main__priceComponent .componentWrap .firstPart > div:nth-child(2) .yearlyBilling span {
+  color: #858fad;
+  font-family: "themeSemiBold";
+  font-size: 1.3rem;
+}
+
+.main .section-main .sectionWrap .section-main__priceComponent .componentWrap .firstPart > div:nth-child(2) .yearlyBilling::after {
+  background: #feece7;
+  border-radius: 1rem;
+  content: "-25%";
+  color: #ff8c66;
+  font-family: "themeSemiBold";
+  padding: 0.3rem 0.5rem;
+}
+
+.main .section-main .sectionWrap .section-main__priceComponent .componentWrap .secondPart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2rem 3rem 3rem;
+}
+
+.main .section-main .sectionWrap .section-main__priceComponent .componentWrap .secondPart > ul {
+  margin-bottom: 3rem;
+}
+
+.main .section-main .sectionWrap .section-main__priceComponent .componentWrap .secondPart > ul li.nav-item {
+  color: #858fad;
+  font-family: "themeSemiBold";
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.main .section-main .sectionWrap .section-main__priceComponent .componentWrap .secondPart > ul li.nav-item:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.main .section-main .sectionWrap .section-main__priceComponent .componentWrap .secondPart > ul li.nav-item::before {
+  content: url("../images/icon-check.svg");
+  margin-right: 1.2rem;
+}
+
+.main .section-main .sectionWrap .section-main__priceComponent .componentWrap .secondPart button.btn-submit {
+  -webkit-animation: glowing 2s infinite alternate;
+          animation: glowing 2s infinite alternate;
+  background: #293356;
+  border: 0;
+  border-radius: 2rem;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  color: #bdccff;
+  font-family: "themeSemiBold";
+  padding: 1.2rem 3rem;
+  text-shadow: 0 0 1px #bdccff, 0 0 2px #bdccff, 0 0 7px #bdccff;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 Animations                                 */
+/* -------------------------------------------------------------------------- */
+@-webkit-keyframes glowing {
+  100% {
+    text-shadow: 0 0 1px #bdccff, 0 0 2px #bdccff, 0 0 7px #bdccff;
+    -webkit-box-shadow: 0 0 2px #293356, 0 0 7px #293356, 0 0 13px #293356;
+            box-shadow: 0 0 2px #293356, 0 0 7px #293356, 0 0 13px #293356;
+  }
+  0% {
+    text-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+}
+@keyframes glowing {
+  100% {
+    text-shadow: 0 0 1px #bdccff, 0 0 2px #bdccff, 0 0 7px #bdccff;
+    -webkit-box-shadow: 0 0 2px #293356, 0 0 7px #293356, 0 0 13px #293356;
+            box-shadow: 0 0 2px #293356, 0 0 7px #293356, 0 0 13px #293356;
+  }
+  0% {
+    text-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
 }
 /*# sourceMappingURL=main.css.map */

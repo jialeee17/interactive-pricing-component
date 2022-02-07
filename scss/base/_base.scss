@@ -5,7 +5,7 @@
     - The "symbol *" part is to solve Firefox SVG sprite bug
  */
  *:where(:not(iframe, canvas, img, svg, video):not(svg *, symbol *)) {
-    all: unset;
+    // all: unset;
     display: revert;
 }
 
@@ -13,6 +13,8 @@
 *,
 *::before,
 *::after {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
