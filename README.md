@@ -16,7 +16,7 @@ This is a solution to the [Interactive pricing component challenge on Frontend M
 ### Links
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [https://jiale456.github.io/interactive-pricing-component/](https://jiale456.github.io/interactive-pricing-component/)
+- Live Site URL: [https://jialeee17.github.io/interactive-pricing-component/](https://jialeee17.github.io/interactive-pricing-component/)
 
 ## My process
 
